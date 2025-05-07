@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Trevor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="projects.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <div class="logo">Trevor</div>
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html" class="active">Projects</a>
+        <a href="contact.html">Contact</a>
+    </div>
+</nav>
+
+<main class="projects-page">
+    <div class="projects-container">
+        <div class="projects-header">
+            <h1>My Projects</h1>
+            <div class="section-divider"></div>
+            <p class="projects-intro">Showcasing my best work and creative solutions</p>
+        </div>
+
+        <div class="project-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="web">Web Dev</button>
+            <button class="filter-btn" data-filter="design">Design</button>
+            <button class="filter-btn" data-filter="other">Other</button>
+        </div>
+
+        <div class="projects-grid">
+            <!-- Project Card 1 -->
+            <div class="project-card" data-category="web">
+                <div class="project-image">
+                    <img src="joker.jpeg" alt="Personal Portfolio">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="live-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Personal Portfolio</h3>
+                    <p>A responsive portfolio website built with HTML, CSS, and JavaScript.</p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 2 -->
+            <div class="project-card" data-category="design">
+                <div class="project-image">
+                    <img src="The Superb Futristic Dashboards and Floating UIs by Sebastian Stapelfeldt – Design You Trust — Design Daily Since 2007.jpeg" alt="UI Design Project">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="live-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>UI Design Project</h3>
+                    <p>Modern user interface design for a mobile application.</p>
+                    <div class="project-tags">
+                        <span>Figma</span>
+                        <span>UI/UX</span>
+                        <span>Prototype</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project Card 3 - Weather App moved to "Other" category -->
+            <div class="project-card" data-category="other">
+                <div class="project-image">
+                    <img src="Weather App Website.jpeg" alt="Weather App">
+                    <div class="project-overlay">
+                        <div class="project-links">
+                            <a href="#" class="live-link"><i class="fas fa-external-link-alt"></i> Live</a>
+                            <a href="#" class="github-link"><i class="fab fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-info">
+                    <h3>Weather App</h3>
+                    <p>Real-time weather application using weather API.</p>
+                    <div class="project-tags">
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>API</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<footer>
+    <p>© 2025 Trevor | Web Developer</p>
+</footer>
+
+<script>
+    document.querySelectorAll('.filter-btn').forEach(button => {
+        button.addEventListener('click', () => {
+            let filterValue = button.dataset.filter;
+
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.style.display = (filterValue === 'all' || card.dataset.category === filterValue) ? 'block' : 'none';
+            });
+
+            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        });
+
+        button.addEventListener('mouseover', () => {
+            button.classList.add('active');
+        });
+
+        button.addEventListener('mouseout', () => {
+            if (!button.classList.contains('clicked')) {
+                button.classList.remove('active');
+            }
+        });
+    });
+</script>
+
+</body>
+</html>
