@@ -46,6 +46,21 @@
 </footer>
 </body>
 </html>
+<!-- Add this button in your HTML -->
+<button id="toggle-glass">Toggle Glass Effect</button>
+<!-- Add this script at the end of your body tag -->
+<script>
+    document.getElementById('toggle-glass').addEventListener('click', () => {
+        const heroElement = document.querySelector('.hero');
+        if (heroElement.style.backdropFilter) {
+            heroElement.style.backdropFilter = '';
+            heroElement.style.webkitBackdropFilter = '';
+        } else {
+            heroElement.style.backdropFilter = 'blur(10px)';
+            heroElement.style.webkitBackdropFilter = 'blur(10px)';
+        }
+    });
+</script>
 
 
 
