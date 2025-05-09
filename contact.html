@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact - Trevor</title>
-    <link rel="stylesheet" href="style.css"> <link rel="stylesheet" href="contact.css"> <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
 <nav class="navbar">
@@ -13,7 +14,8 @@
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
-        <a href="contact.html" class="active">Contact</a> </div>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
 </nav>
 
 <main class="contact-page">
@@ -103,7 +105,7 @@
 </footer>
 
 <script>
-document.getElementById("contactForm").addEventListener("submit", async function(event) { // Added async
+document.getElementById("contactForm").addEventListener("submit", async function(event) {
     event.preventDefault(); // Prevent default submission behavior
 
     const form = this;
@@ -117,7 +119,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
     const formData = new FormData(form);
 
     try {
-        const response = await fetch(form.action, { // Used await
+        const response = await fetch(form.action, {
             method: form.method,
             body: formData,
             headers: { 'Accept': 'application/json' }
@@ -127,7 +129,7 @@ document.getElementById("contactForm").addEventListener("submit", async function
             successMessage.style.display = "block";
             form.reset(); // Clear the form after submission
         } else {
-            const data = await response.json(); // Try to parse error message from response
+            const data = await response.json();
             if (data.errors) {
                 errorMessage.textContent = data.errors.map(error => error.message).join(', ');
             } else {
