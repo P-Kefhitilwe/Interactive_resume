@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
+
 <nav class="navbar">
     <div class="nav-links">
         <a href="index.html" class="active">Home</a>
@@ -20,7 +20,7 @@
 </nav>
 
 <main class="home">
-    <div class="hero">
+    <div class="hero glass">
         <div class="hero-content">
             <div class="hero-text">
                 <p class="greeting">👋 Hello, I'm</p>
@@ -39,28 +39,20 @@
             </div>
         </div>
     </div>
+
+    <button id="toggle-glass">Toggle Glass Effect</button>
 </main>
 
 <footer>
     <p>© 2025 Trevor | Web Developer</p>
 </footer>
-</body>
-</html>
-<!-- Add this button in your HTML -->
-<button id="toggle-glass">Toggle Glass Effect</button>
-<!-- Add this script at the end of your body tag -->
+
 <script>
     document.getElementById('toggle-glass').addEventListener('click', () => {
         const heroElement = document.querySelector('.hero');
-        if (heroElement.style.backdropFilter) {
-            heroElement.style.backdropFilter = '';
-            heroElement.style.webkitBackdropFilter = '';
-        } else {
-            heroElement.style.backdropFilter = 'blur(10px)';
-            heroElement.style.webkitBackdropFilter = 'blur(10px)';
-        }
+        heroElement.classList.toggle('glass');
     });
 </script>
 
-
-
+</body>
+</html>
