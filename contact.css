@@ -1,11 +1,13 @@
+/* style.css */
+
 /* Reset and Base Styles */
 html {
     box-sizing: border-box; /* Apply border-box to the root html element */
 }
 *, *::before, *::after {
     box-sizing: inherit; /* All elements inherit border-box */
-    margin: 0; /* Keep margin reset for consistency */
-    padding: 0; /* Keep padding reset for consistency */
+    margin: 0;
+    padding: 0;
 }
 
 body {
@@ -13,11 +15,10 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
-    /* Add margin-top to account for fixed navbar if not using padding-top on main */
-    padding-top: 80px; /* Adjust this value based on your navbar's height */
+    padding-top: 80px; /* Adjust this value based on your navbar's actual height (e.g., if navbar is 60px tall, set 60px) */
 }
 
-/* Navigation (keep these styles consistent with index.css) */
+/* Navigation */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -43,255 +44,55 @@ body {
     color: #007bff;
 }
 
-/* Contact Page Specific Styles */
-.contact-page {
-    /* Padding adjusted for fixed navbar */
-    padding: 40px 5% 80px; /* Top padding can be adjusted or removed if body has padding-top */
-    background-color: #f8f9fa;
-    min-height: calc(100vh - 100px); /* Account for fixed navbar and footer height if fixed */
-    /* If footer is not fixed, min-height: 100vh; might be enough. */
-    /* Consider using `main` tag if this is the main content area */
-    display: flex; /* Use flex to vertically center content if needed */
-    flex-direction: column;
-    justify-content: center; /* Centers content vertically within the available space */
+/* General H1/H2/P styles (if consistent across pages) */
+/* Example: if you want all H1s to have a certain default style */
+h1 {
+    font-size: 3.5rem; /* Adjusted slightly to be more general */
+    color: #2d2d2d;
+    margin-bottom: 0.5rem;
 }
 
-.contact-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    width: 100%; /* Ensure it respects max-width and takes available width */
-}
-
-.contact-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-divider {
-    width: 60px;
-    height: 4px;
-    background: #007bff;
-    margin: 1rem auto;
-    border-radius: 2px;
-}
-
-.contact-intro {
-    color: #6c757d;
-    font-size: 1.1rem;
-    margin-bottom: 2rem;
-}
-
-/* Contact Content Layout */
-.contact-content {
-    display: grid;
-    grid-template-columns: 1fr 1.5fr;
-    gap: 2rem;
-}
-
-/* Contact Info Section */
-.contact-card {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.contact-methods {
-    margin-bottom: 2rem;
-}
-
-.contact-method {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1.5rem;
-}
-
-.contact-method i {
-    font-size: 1.5rem;
+h2 {
+    font-size: 2rem; /* Adjusted slightly to be more general */
     color: #007bff;
-    width: 40px;
-    height: 40px;
-    background: #f8f9fa;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 1rem;
-    flex-shrink: 0; /* Prevent icon from shrinking on smaller screens */
-}
-
-.method-details h3 {
-    color: #2d2d2d;
-    margin-bottom: 0.25rem;
-    font-size: 1.1rem;
-}
-
-.method-details p {
-    color: #6c757d;
-    font-size: 0.9rem;
-}
-
-/* Social Links */
-.social-links h3 {
-    color: #2d2d2d;
     margin-bottom: 1rem;
 }
 
-.social-icons {
-    display: flex;
-    gap: 1rem;
-}
-
-.social-icon {
-    width: 40px;
-    height: 40px;
-    background: #f8f9fa;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #007bff;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    flex-shrink: 0; /* Prevent icon from shrinking */
-}
-
-.social-icon:hover {
-    background: #007bff;
-    color: white;
-    transform: translateY(-3px);
-}
-
-/* Contact Form Section */
-.contact-form-section {
-    background: white;
-    border-radius: 15px;
-    padding: 2rem;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    color: #2d2d2d;
-    margin-bottom: 0.5rem;
-    font-weight: 500;
-}
-
-input,
-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
+p {
     font-size: 1rem;
-    transition: border-color 0.3s ease;
+    color: #6c757d;
 }
 
-input:focus,
-textarea:focus {
-    outline: none;
-    border-color: #007bff;
-}
 
-textarea {
-    resize: vertical;
-    min-height: 120px;
-}
-
-.submit-btn {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 0.5rem;
-    width: 100%;
-    padding: 1rem;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 1rem;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.submit-btn:hover {
-    background: #0056b3;
-    transform: translateY(-2px);
-}
-
-.submit-btn i {
-    transition: transform 0.3s ease;
-}
-
-.submit-btn:hover i {
-    transform: translateX(5px);
-}
-
-/* Form Validation Styles */
-input:invalid,
-textarea:invalid {
-    border-color: #dc3545;
-}
-
-/* Success Message */
-.success-message {
-    display: none; /* Hidden by default, shown with JS */
-    text-align: center;
-    color: #28a745;
-    padding: 1rem;
-    background: #d4edda;
-    border-radius: 8px;
-    margin-top: 1rem;
-}
-
-/* Footer (Assuming it's consistent with index.css, if it's on this page) */
+/* Footer */
 footer {
     text-align: center;
     padding: 1.5rem;
     background-color: white;
     color: #6c757d;
-    position: fixed; /* Only use fixed if you want it always visible */
+    position: fixed; /* Keep fixed if all footers are fixed */
     bottom: 0;
     width: 100%;
     box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
 }
 
-
-/* Responsive Design */
-@media (max-width: 968px) {
-    .contact-content {
-        grid-template-columns: 1fr; /* Stack columns vertically */
-    }
-}
-
-@media (max-width: 768px) { /* Add or adjust breakpoints as needed for navbar */
+/* Responsive Design (Global Navbar adjustments) */
+@media (max-width: 768px) {
     .navbar {
-        padding: 1rem 5%; /* Smaller padding for navbar on smaller screens */
+        padding: 1rem 5%;
     }
     .nav-links a {
-        margin-left: 1rem; /* Smaller margin for nav links */
+        margin-left: 1rem;
     }
 }
 
-@media (max-width: 480px) {
-    .contact-method {
-        flex-direction: column;
-        text-align: center;
+/* Add other common responsive adjustments if they exist in your index.css */
+/* For instance, general H1/H2 font size adjustments */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
     }
-
-    .contact-method i {
-        margin: 0 0 1rem 0;
-    }
-
-    .social-icons {
-        justify-content: center;
-    }
-    .contact-page {
-        padding-left: 2%; /* Reduce horizontal padding on very small screens */
-        padding-right: 2%;
+    h2 {
+        font-size: 1.8rem;
     }
 }
