@@ -1,10 +1,11 @@
-contact.css
-css
-    /* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset and Base Styles */
+html {
+    box-sizing: border-box; /* Apply border-box to the root html element */
+}
+*, *::before, *::after {
+    box-sizing: inherit; /* All elements inherit border-box */
+    margin: 0; /* Keep margin reset for consistency */
+    padding: 0; /* Keep padding reset for consistency */
 }
 
 body {
@@ -12,9 +13,11 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    /* Add margin-top to account for fixed navbar if not using padding-top on main */
+    padding-top: 80px; /* Adjust this value based on your navbar's height */
 }
 
-/* Navigation */
+/* Navigation (keep these styles consistent with index.css) */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -39,16 +42,24 @@ body {
 .nav-links a.active {
     color: #007bff;
 }
-    /* Contact Page Specific Styles */
+
+/* Contact Page Specific Styles */
 .contact-page {
-    padding: 120px 5% 80px;
+    /* Padding adjusted for fixed navbar */
+    padding: 40px 5% 80px; /* Top padding can be adjusted or removed if body has padding-top */
     background-color: #f8f9fa;
-    min-height: 100vh;
+    min-height: calc(100vh - 100px); /* Account for fixed navbar and footer height if fixed */
+    /* If footer is not fixed, min-height: 100vh; might be enough. */
+    /* Consider using `main` tag if this is the main content area */
+    display: flex; /* Use flex to vertically center content if needed */
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically within the available space */
 }
 
 .contact-container {
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%; /* Ensure it respects max-width and takes available width */
 }
 
 .contact-header {
@@ -106,6 +117,7 @@ body {
     align-items: center;
     justify-content: center;
     margin-right: 1rem;
+    flex-shrink: 0; /* Prevent icon from shrinking on smaller screens */
 }
 
 .method-details h3 {
@@ -141,6 +153,7 @@ body {
     color: #007bff;
     text-decoration: none;
     transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevent icon from shrinking */
 }
 
 .social-icon:hover {
@@ -226,7 +239,7 @@ textarea:invalid {
 
 /* Success Message */
 .success-message {
-    display: none;
+    display: none; /* Hidden by default, shown with JS */
     text-align: center;
     color: #28a745;
     padding: 1rem;
@@ -235,10 +248,32 @@ textarea:invalid {
     margin-top: 1rem;
 }
 
+/* Footer (Assuming it's consistent with index.css, if it's on this page) */
+footer {
+    text-align: center;
+    padding: 1.5rem;
+    background-color: white;
+    color: #6c757d;
+    position: fixed; /* Only use fixed if you want it always visible */
+    bottom: 0;
+    width: 100%;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Responsive Design */
 @media (max-width: 968px) {
     .contact-content {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Stack columns vertically */
+    }
+}
+
+@media (max-width: 768px) { /* Add or adjust breakpoints as needed for navbar */
+    .navbar {
+        padding: 1rem 5%; /* Smaller padding for navbar on smaller screens */
+    }
+    .nav-links a {
+        margin-left: 1rem; /* Smaller margin for nav links */
     }
 }
 
@@ -255,6 +290,8 @@ textarea:invalid {
     .social-icons {
         justify-content: center;
     }
+    .contact-page {
+        padding-left: 2%; /* Reduce horizontal padding on very small screens */
+        padding-right: 2%;
+    }
 }
-
-
