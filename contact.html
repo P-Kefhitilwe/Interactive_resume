@@ -24,7 +24,7 @@
         <div class="contact-header">
             <h1>Get in Touch</h1>
             <div class="section-divider"></div>
-            <p class="contact-intro">Let's work together! Feel free to reach out for collaborations or just a friendly hello.</p>
+            <p class="contact-intro">Let's work together! Feel free to reach out for collaborations or just a friendly hello</p>
         </div>
 
         <div class="contact-content">
@@ -88,9 +88,6 @@
                         <textarea id="message" name="message" rows="5" required></textarea>
                     </div>
 
-                    <!-- Success Message -->
-                    <div class="success-message" id="successMessage">Your message was sent successfully!</div>
-
                     <button type="submit" class="submit-btn">
                         <span>Send Message</span>
                         <i class="fas fa-paper-plane"></i>
@@ -104,26 +101,5 @@
 <footer>
     <p>© 2025 Trevor | Web Developer</p>
 </footer>
-
-<script>
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-    event.preventDefault(); // Prevent default submission behavior
-    const formData = new FormData(this);
-
-    fetch(this.action, {
-        method: this.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-    }).then(response => {
-        if (response.ok) {
-            document.getElementById("successMessage").style.display = "block";
-            this.reset(); // Clear the form after submission
-        } else {
-            alert("There was an error sending your message. Please try again later.");
-        }
-    }).catch(error => alert("Error: " + error));
-});
-</script>
-
 </body>
 </html>
