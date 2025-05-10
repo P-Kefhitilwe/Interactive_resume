@@ -1,10 +1,11 @@
-projects.css
-css
-    /* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Reset and Base Styles */
+html {
+    box-sizing: border-box; /* Apply border-box to the root html element */
+}
+*, *::before, *::after {
+    box-sizing: inherit; /* All elements inherit border-box */
+    margin: 0; /* Keep margin reset for consistency */
+    padding: 0; /* Keep padding reset for consistency */
 }
 
 body {
@@ -12,9 +13,11 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #f8f9fa;
+    /* Add margin-top to account for fixed navbar if not using padding-top on main */
+    padding-top: 80px; /* Adjust this value based on your navbar's height */
 }
 
-/* Navigation */
+/* Navigation (keep these styles consistent with index.css) */
 .navbar {
     display: flex;
     justify-content: space-between;
@@ -39,6 +42,7 @@ body {
 .nav-links a.active {
     color: #007bff;
 }
+
  /* Projects Page Specific Styles */
 .projects-page {
     padding: 120px 5% 80px;
